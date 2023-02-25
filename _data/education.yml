@@ -1,20 +1,20 @@
 # Degree
 
 - degree: MSCA PhD Candidate in Theoretical Physics
-  uni: Collège de France (CIRB) and École Normale Supérieure - 🇫🇷
+  uni: 🇫🇷 Paris FR - Collège de France & École Normale Supérieure
   year: 2024 (expected)
   summary: >
     Supervisor: Dr. Hervé Turlier
 
 - degree: Master’s Degree in Theoretical Physics
-  uni: Sapienza University of Rome - 🇮🇹
+  uni: 🇮🇹 Rome IT - Sapienza University of Rome
   year: 2021
-  award: 110 with honors / 110
+  #award: 110 with honors / 110
   summary: >
     Supervisors: Prof. Giancarlo Ruocco and Dr. Giorgio Gosti <br> Thesis: High performance matching algorithm based on orthogonal polynomials
 
 - degree: Bachelor’s Degree in Physics
-  uni: Sapienza University of Rome - 🇮🇹
+  uni: 🇮🇹 Rome IT - Sapienza University of Rome
   year:  2018
   summary: >
     Supervisor: Prof. Federico Ricci-Tersenghi <br> Thesis: Percolation in models with long-range interactions
