@@ -11,7 +11,7 @@ sass:
 # Resume settings
 resume_avatar:                  "true"
 resume_name:                    "Alessandro Pasqui"
-resume_title:                   "MSCA PhD Candidate in Physics"
+resume_title:                   "MSCA PhD Candidate"
 
 # used for the contact button in _layouts/resume.html
 resume_contact_email:           "alessandro.pasqui@college-de-france.fr"
