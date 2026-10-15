@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alessandro E. Pasqui</title>
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,300,800,700" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
     <meta name="description" content="personal webpage">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="stylesheet" href="css/modern.css">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="js/main.js" defer></script>
+    <!-- <link rel="canonical" href="http://localhost:4000/"> -->
     <link rel="icon" type="image/x-icon" href="img/profile.png">
   </head>
 
@@ -18,9 +23,12 @@
       <meta itemprop="address" content="11 Pl. Marcelin Berthelot, 75231 Paris, France">
 
       <header class="page-header">
-        <a href="https://en.wikipedia.org/wiki/Brooklyn_Bridge"> 
-          <img src="img/profile.png" alt=" " class="avatar no-print" itemprop="image">
-        </a> 
+        <div class="avatar-slot no-print">
+          <a href="https://en.wikipedia.org/wiki/Brooklyn_Bridge" class="avatar-link">
+            <img src="img/profile.png" alt="Alessandro E. Pasqui" class="avatar" itemprop="image">
+          </a>
+        </div>
+        <div class="dock-bar no-print" aria-hidden="true"></div>
 
         <h1 class="header-name" itemprop="name">Alessandro E. Pasqui</h1>
 
@@ -36,7 +44,9 @@
             <br><br>
             alessandro [dot] pasqui [at] college-de-france [dot] fr -->
             <br>
-            <strong>AI Research Scientist</strong> with a background in statistical physics, developing <strong>interpretable computational methods for biology</strong>. <br><br>Interested in <strong>foundation models</strong>, <strong>mechanistic interpretability</strong>, and <strong>differentiable optimisation</strong> <br>to uncover biologically meaningful representations from complex biological data. 
+            <span class="tagline"><strong>AI Research Scientist</strong> <span class="tagline-extra">with a background in statistical physics,<br></span> developing <strong>interpretable computational methods for biology</strong>.</span> <br><br>Interested in<br>
+            <a href="https://git.io/typing-svg"><img class="typing-svg" src="https://readme-typing-svg.herokuapp.com?font=Geo&size=25&pause=1000&center=true&vCenter=true&width=435&lines=foundation+models;mechanistic+interpretability;differentiable+optimisation" alt="foundation models, mechanistic interpretability, differentiable optimisation"></a>
+            <br>to uncover biologically meaningful representations from complex biological data. 
             <!-- <strong>Theoretical physicist</strong> focused on <strong>computational frameworks</strong> <br>bridging <strong>AI</strong> and <strong>physics-based modeling</strong> for <strong>inverse problems</strong>.  -->
             <br><br>
             Postdoc @ <a href="https://www.mics.centralesupelec.fr/home">MICS Lab, CentraleSupélec</a>
@@ -80,65 +90,186 @@
           </ul>
         </div>
 
-        <div class="executive-summary" itemprop="description" style="text-align: justify; line-height: 1.6;">
-          
-          <!-- <p>
-          Passionate about <strong>machine learning</strong>, with a particular interest in applying <strong>differentiable modeling</strong> and <strong>closed-loop optimization</strong> to understand <strong>complex physical systems</strong>. 
-          </p> -->
+        <div class="fold-tabs no-print">
+          <h2 class="fold-heading">
+            <button type="button" class="fold-toggle" aria-expanded="false" aria-controls="short-bio">
+              Short bio
+              <svg class="fold-chevron" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </h2>
+          <h2 class="fold-heading">
+            <button type="button" class="fold-toggle" aria-expanded="false" aria-controls="projects">
+              Projects
+              <svg class="fold-chevron" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </h2>
+          <h2 class="fold-heading">
+            <button type="button" class="fold-toggle" aria-expanded="false" aria-controls="teaching">
+              Teaching
+              <svg class="fold-chevron" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </h2>
+        </div>
 
-          <p>
+        <div class="fold-panel" id="short-bio">
+          <div class="fold-inner">
+            <div class="executive-summary fold-body" itemprop="description">
+        
+              <!-- <p>
+              Passionate about <strong>machine learning</strong>, with a particular interest in applying <strong>differentiable modeling</strong> and <strong>closed-loop optimization</strong> to understand <strong>complex physical systems</strong>. 
+              </p> -->
 
-          <strong>TL;DR</strong>
-          <br>
-          <br>
-          I am currently a <strong>Postdoc researcher</strong> at the <strong><a href="https://mics.centralesupelec.fr/">MICS lab</a></strong> at  <strong><a href="https://www.centralesupelec.fr/">CentraleSupélec</a></strong>, where I work on interpretability methods for foundation models trained on biological data. 
-          </p>
-          
-          <p>
-            I recently completed my <strong>PhD</strong> at the
-            <strong><a href="https://www.college-de-france.fr/">Collège de France</a></strong>
-            as a
-            <strong><a href="https://marie-sklodowska-curie-actions.ec.europa.eu/">Marie Skłodowska-Curie Fellow</a></strong>,
-            under the supervision of
-            <strong><a href="https://www.turlierlab.com/">Dr. Hervé Turlier</a></strong> 
-            and in collaboration with 
-            <strong><a href="https://scholar.google.com/citations?user=wGB7cpUAAAAJ&hl=fr">Dr. Maxence Ernoult</a></strong> 
-            from 
-            <strong><a href="https://deepmind.google/">Google DeepMind</a></strong>.
-          </p>
+              <p>
 
-          <p>
-            My doctoral research focused on
-            <strong>AI-based methods for inverse problems in biological cell systems</strong>,
-            developing computational frameworks that bridge
-            <strong>physics-based modeling</strong>,
-            <strong>machine learning</strong>,
-            and <strong>cell biology</strong>.
-          </p>
+              I am a <strong>Postdoctoral researcher</strong> at the <strong><a href="https://mics.centralesupelec.fr/">MICS Lab</a></strong> at <strong><a href="https://www.centralesupelec.fr/">CentraleSupélec</a></strong>, where my research focuses on developing interpretability methods for foundation models trained on omics data.
+              This work is carried out in collaboration with
+              <strong><a href="https://wassilaouerdane.github.io/">Prof. Wassila Ouerdane</a></strong>,
+              the med-tech startup
+              <strong><a href="https://www.scientalab.com/">Scienta</a></strong>,
+              and the
+              <strong><a href="https://www.pasteur.fr/en">Institut Pasteur</a></strong>.
+              </p>
+        
+              <p>
+                I completed my <strong>PhD</strong> at the
+                <strong><a href="https://www.college-de-france.fr/">Collège de France</a></strong>
+                as a
+                <strong><a href="https://marie-sklodowska-curie-actions.ec.europa.eu/">Marie Skłodowska-Curie Fellow</a></strong>,
+                under the supervision of
+                <strong><a href="https://www.turlierlab.com/">Dr. Hervé Turlier</a></strong> 
+                and in collaboration with 
+                <strong><a href="https://scholar.google.com/citations?user=wGB7cpUAAAAJ&hl=fr">Dr. Maxence Ernoult</a></strong> 
+                from 
+                <strong><a href="https://deepmind.google/">Google DeepMind</a></strong>.
+              </p>
 
-          <p>Key projects include:</p>
+              <p>
+                My thesis,
+                <strong>AI-based Methods for Inverse Problems in Biological Cell Systems</strong>,
+                focused on developing computational frameworks that integrate
+                <strong>machine learning</strong>
+                and <strong>physics-based modeling</strong>
+                for <strong>cell</strong> and <strong>tissue biology</strong>.
+              </p>
 
-          <ul>
-            <li>
-              <strong><a href="https://arxiv.org/abs/2604.06896/">VertAX</a></strong> — a differentiable vertex model implemented in JAX for efficient forward and inverse modeling of confluent tissues,
-              leveraging automatic differentiation and bilevel optimization to infer cellular parameters and reproduce tissue-scale behavior.
-              <em>(Manuscript in preparation for <i>Nature Computational Science</i>)</em>
-            </li>
-            <li>
-              <strong><a href="https://arxiv.org/abs/2503.04843/">ZAugNet</a></strong> — a self-supervised generative model for 3D bio-imaging (built in PyTorch)
-              that uses adversarial learning and knowledge distillation to enhance axial resolution in microscopy data.
-              <em>(Manuscript under revision at <i>Nature Communications</i>)</em>
-            </li>
-          </ul>
+              <!-- <p>Key projects include:</p>
 
-          <p>
-            Before my PhD, I completed a <strong>Master’s Degree in Statistical Physics</strong> at
-            <strong><a href="https://www.uniroma1.it/en/pagina-strutturale/home">Sapienza University of Rome</a></strong>
-            and the <strong><a href="https://www.iit.it/">Italian Institute of Technology</a></strong>,
-            where I developed high-performance algorithms for shape matching and protein–receptor interaction studies.
-            My <strong>Bachelor’s thesis</strong>, also at Sapienza, explored percolation in models with long-range interactions using analytical and numerical methods.
-          </p>
-          
+              <ul>
+                <li>
+                  <strong><a href="https://arxiv.org/abs/2604.06896/">VertAX</a></strong> — a differentiable vertex model implemented in JAX for efficient forward and inverse modeling of confluent tissues,
+                  leveraging automatic differentiation and bilevel optimization to infer cellular parameters and reproduce tissue-scale behavior.
+                  <em>(Manuscript in preparation for <i>Nature Computational Science</i>)</em>
+                </li>
+                <li>
+                  <strong><a href="https://arxiv.org/abs/2503.04843/">ZAugNet</a></strong> — a self-supervised generative model for 3D bio-imaging (built in PyTorch)
+                  that uses adversarial learning and knowledge distillation to enhance axial resolution in microscopy data.
+                  <em>(Manuscript under revision at <i>Nature Communications</i>)</em>
+                </li>
+              </ul> -->
+
+              <p>
+                Before my PhD, I completed a <strong>Master’s Degree in Statistical Physics</strong> at
+                <strong><a href="https://www.uniroma1.it/en/pagina-strutturale/home">Sapienza University of Rome</a></strong>
+                and the <strong><a href="https://www.iit.it/">Italian Institute of Technology</a></strong>,
+                where I developed high-performance algorithms for shape matching and protein–receptor interaction studies.
+                My <strong>Bachelor’s thesis</strong>, also at Sapienza, explored percolation in models with long-range interactions using analytical and numerical methods.
+              </p>
+        
+            </div>
+          </div>
+        </div>
+
+        <div class="fold-panel" id="projects">
+          <div class="fold-inner">
+            <div class="fold-body">
+              <ul class="entries">
+                <li class="entry entry--media">
+                  <a class="entry-media entry-media--compact" href="https://arxiv.org/abs/2604.06896" tabindex="-1" aria-hidden="true">
+                    <img src="img/vertax.png" alt="VertAX logo" loading="lazy">
+                  </a>
+                  <div>
+                    <h3 class="entry-title"><a href="https://arxiv.org/abs/2604.06896">VertAX</a></h3>
+                    <p class="entry-subtitle">A differentiable vertex model for learning epithelial tissue mechanics</p>
+                    <p>
+                      The first fully differentiable vertex model of confluent epithelial tissues, built in JAX.
+                      Automatic differentiation, GPU acceleration and end-to-end bilevel optimisation make it possible
+                      to infer mechanical parameters from experimental data and to inverse-design tissue-scale behaviour.
+                    </p>
+                    <p class="entry-meta">
+                      2026 ·
+                      <a href="https://arxiv.org/abs/2604.06896">arXiv</a> ·
+                      <a href="https://github.com/VirtualEmbryo/VertAX">Code</a> ·
+                      In preparation for <em>Nature Computational Science</em>
+                    </p>
+                  </div>
+                </li>
+                <li class="entry entry--media">
+                  <a class="entry-media" href="https://arxiv.org/abs/2503.04843" tabindex="-1" aria-hidden="true">
+                    <img src="img/zaugnet.png" alt="ZAugNet: a low-resolution 3D image stack turned into a predicted high-resolution stack" loading="lazy">
+                  </a>
+                  <div>
+                    <h3 class="entry-title"><a href="https://arxiv.org/abs/2503.04843">ZAugNet</a></h3>
+                    <p class="entry-subtitle">Self-supervised z-slice augmentation for 3D bio-imaging via knowledge distillation</p>
+                    <p>
+                      A fast, self-supervised deep-learning method that enhances axial resolution in 3D microscopy
+                      by interpolating between consecutive slices. Built in PyTorch, it combines adversarial learning
+                      with knowledge distillation.
+                    </p>
+                    <p class="entry-meta">
+                      2025 ·
+                      <a href="https://arxiv.org/abs/2503.04843">arXiv</a> ·
+                      <a href="https://github.com/VirtualEmbryo/ZAugNet">Code</a> ·
+                      Under revision at <em>Nature Communications</em>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="fold-panel" id="teaching">
+          <div class="fold-inner">
+            <div class="fold-body">
+              <ul class="entries">
+                <li class="entry">
+                  <p class="entry-date">Oct 2026 – Jan 2027</p>
+                  <div>
+                    <h3 class="entry-title">Course Lecturer &amp; Coordinator</h3>
+                    <p class="entry-subtitle">“Modélisation de la Propagation Virale” · CentraleSupélec</p>
+                  </div>
+                </li>
+                <li class="entry">
+                  <p class="entry-date">May – Jun 2026</p>
+                  <div>
+                    <h3 class="entry-title">Teaching Assistant</h3>
+                    <p class="entry-subtitle">“Traitement de Données Massives” · CentraleSupélec</p>
+                  </div>
+                </li>
+                <li class="entry">
+                  <p class="entry-date">Apr – May 2026</p>
+                  <div>
+                    <h3 class="entry-title">Teaching Assistant</h3>
+                    <p class="entry-subtitle">“Time Series and Agent-based Modeling in Finance” · CentraleSupélec</p>
+                  </div>
+                </li>
+                <li class="entry">
+                  <p class="entry-date">Feb – Jun 2026</p>
+                  <div>
+                    <h3 class="entry-title">Teaching Assistant</h3>
+                    <p class="entry-subtitle">“AI, Data &amp; Management Sciences” · CentraleSupélec–ESSEC</p>
+                  </div>
+                </li>
+                <li class="entry">
+                  <p class="entry-date">Jan – Mar 2026</p>
+                  <div>
+                    <h3 class="entry-title">Teaching Assistant</h3>
+                    <p class="entry-subtitle">“Data Sciences and Business Analytics” · CentraleSupélec–ESSEC</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </header>
 

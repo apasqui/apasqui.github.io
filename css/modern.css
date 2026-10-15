@@ -1,0 +1,400 @@
+/* ---------------------------------------------------------------
+   Docking header
+   The avatar slot keeps its space in the page. Once JS is running
+   (.js-dock on <html>), the avatar link is drawn in a fixed layer and
+   positioned every frame by js/main.js, so it glides into a compact
+   top bar and back. Copies of the name and tagline fade in beside it.
+   --------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------
+   Typography: Lato everywhere (replaces Lora and Open Sans from
+   main.css). The typing animation brings its own Geo font.
+   --------------------------------------------------------------- */
+:root {
+  --font-sans: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body,
+.section-header h2,
+.page-header .header-name,
+.page-header .header-contact-info,
+.page-header .title-bar .header-title,
+.contact-button,
+.content-section .resume-item-title {
+  font-family: var(--font-sans);
+}
+
+/* Animated "Interested in" line; scales down on narrow screens */
+.typing-svg {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Keep the name on one line on small phones */
+.page-header .header-name {
+  font-size: clamp(1.75rem, 8.5vw, 3rem);
+  letter-spacing: -0.02em; /* main.css's -.15rem was tuned for Open Sans */
+}
+
+.avatar-slot {
+  width: 300px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+}
+
+.avatar-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-header .avatar-link .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 33.333%;
+}
+
+.js-dock .avatar-link,
+.dock-name,
+.dock-tagline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.js-dock .avatar-link {
+  z-index: 21;
+}
+
+/* Hide the avatar until the first frame is positioned, to avoid a
+   flash at 0,0. */
+.js-dock:not(.dock-ready) .avatar-link {
+  visibility: hidden;
+}
+
+.js-dock .page-header .avatar-link .avatar {
+  /* --dock goes from 0 (in place) to 1 (docked); set by JS */
+  border-radius: calc(33.333% + 16.667% * var(--dock, 0));
+  box-shadow: 0 12px 40px rgba(0, 0, 0, calc(0.22 * var(--dock, 0)));
+  transition: filter 0.2s ease;
+}
+
+.js-dock .avatar-link.is-docked:hover .avatar {
+  filter: brightness(1.08);
+}
+
+.avatar-link:focus-visible {
+  outline: none;
+}
+
+.avatar-link:focus-visible .avatar {
+  outline: 3px solid #333;
+  outline-offset: 4px;
+}
+
+/* Same type as the page title: Lato, black */
+.dock-name {
+  z-index: 21;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  color: #333;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.dock-tagline {
+  z-index: 21;
+  font-family: var(--font-sans);
+  line-height: 1.3;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Frosted bar behind the docked header */
+.dock-bar {
+  display: none;
+}
+
+.js-dock .dock-bar {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--dock-bar, 76px);
+  z-index: 20;
+  pointer-events: none;
+  opacity: var(--dock, 0);
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@media print {
+  .js-dock .avatar-link {
+    position: static;
+    transform: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Collapsible sections (Short bio, Projects, Teaching): heading-sized
+   toggles under the Curriculum Vitae bar that slide their panel open
+   below them, and closed again.
+   --------------------------------------------------------------- */
+/* One row right under the bar: left, centre, right */
+.fold-tabs {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: .75rem;
+  margin-top: 1.25rem;
+}
+
+.page-header .fold-heading {
+  margin: 0;
+}
+
+.page-header .fold-heading:nth-child(1) { justify-self: start; }
+.page-header .fold-heading:nth-child(2) { justify-self: center; }
+.page-header .fold-heading:nth-child(3) { justify-self: end; }
+
+/* Same type as "Curriculum Vitae" */
+.fold-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 2rem;
+  letter-spacing: -.05rem;
+  color: #333;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+@media (max-width: 599px) {
+  .fold-toggle {
+    gap: .25rem;
+    font-size: 1.25rem;
+    letter-spacing: -.02rem;
+  }
+
+  .fold-chevron {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.fold-toggle:hover {
+  color: #9c9c9c;
+}
+
+.fold-toggle:focus-visible {
+  outline: 2px solid #333;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.fold-chevron {
+  transition: transform .35s ease;
+}
+
+.fold-toggle[aria-expanded="true"] .fold-chevron {
+  transform: rotate(180deg);
+}
+
+.page-header .fold-body {
+  text-align: justify;
+  line-height: 1.6;
+  padding-top: calc(.5rem + .5cm);
+}
+
+@media (min-width: 600px) {
+  .page-header .fold-body {
+    font-size: 1.125rem;
+  }
+}
+
+/* Collapsed by default once JS has marked the page; without JS the
+   panels simply stay visible. Animating grid rows from 0fr to 1fr
+   lets a panel open to its natural height. */
+.js .fold-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows .45s ease, visibility 0s linear .45s;
+}
+
+.js .fold-panel.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows .45s ease, visibility 0s;
+}
+
+.fold-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.fold-inner .fold-body {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .3s ease, transform .35s ease;
+}
+
+.fold-panel.is-open .fold-body,
+html:not(.js) .fold-inner .fold-body {
+  opacity: 1;
+  transform: none;
+  transition-delay: .1s;
+}
+
+/* Entries in Projects and Teaching: date on the left, details on the
+   right; stacked on narrow screens. */
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entry {
+  padding: .75rem 0;
+}
+
+.entry + .entry {
+  border-top: 1px solid #e6e6e6;
+}
+
+.entry p {
+  margin: 0;
+  text-align: left;
+}
+
+.entry .entry-date {
+  font-size: .875rem;
+  color: #777;
+  text-align: left;
+}
+
+.entry-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.entry .entry-subtitle {
+  margin-bottom: .35rem;
+  font-style: italic;
+  color: #555;
+  text-align: left;
+}
+
+.entry .entry-meta {
+  margin-top: .35rem;
+  font-size: .875rem;
+  color: #777;
+  text-align: left;
+}
+
+@media (min-width: 600px) {
+  .entry {
+    display: grid;
+    grid-template-columns: 10.5rem 1fr;
+    column-gap: 1.25rem;
+  }
+
+  .entry .entry-date {
+    padding-top: .2rem;
+    text-align: right;
+  }
+}
+
+/* Projects: logo on the left of each description. Both logos sit in
+   identical 16:9 boxes so they read at the same visual size. */
+.entry-media {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto .75rem;
+  aspect-ratio: 16 / 9;
+}
+
+.entry-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .25s ease;
+}
+
+/* More breathing room between projects than between teaching entries */
+.entry.entry--media {
+  padding: 1.75rem 0;
+}
+
+.entry.entry--media:first-child {
+  padding-top: .75rem;
+}
+
+/* VertAX's logo fills its box more than ZAugNet's; inset it a little */
+.entry-media--compact img {
+  padding: 5%;
+}
+
+.entry-media:hover img {
+  transform: scale(1.03);
+}
+
+@media (min-width: 600px) {
+  .entry.entry--media {
+    grid-template-columns: 16rem 1fr;
+    column-gap: 1.75rem;
+    align-items: center;
+  }
+
+  .entry--media .entry-media {
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .fold-panel,
+  .fold-chevron,
+  .fold-inner .fold-body {
+    transition: none !important;
+  }
+}
+
+@media print {
+  .js .fold-panel {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+
+  .fold-inner .fold-body {
+    opacity: 1;
+    transform: none;
+  }
+}
