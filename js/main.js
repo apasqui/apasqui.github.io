@@ -139,9 +139,11 @@
 
 // Collapsible sections under the Curriculum Vitae bar (Short bio,
 // Projects, Teaching): clicking a heading opens its panel and closes
-// any other; clicking it again closes it.
+// any other; clicking it again closes it. Short bio is open by default
+// and reopens whenever all panels end up closed.
 (function () {
   var toggles = Array.prototype.slice.call(document.querySelectorAll('.fold-toggle'));
+  var defaultToggle = document.querySelector('.fold-toggle[aria-controls="short-bio"]');
 
   function setOpen(toggle, open) {
     var panel = document.getElementById(toggle.getAttribute('aria-controls'));
@@ -157,6 +159,7 @@
         if (other !== toggle) setOpen(other, false);
       });
       setOpen(toggle, open);
+      if (!open && defaultToggle) setOpen(defaultToggle, true);
     });
   });
 })();
