@@ -318,6 +318,40 @@ html:not(.js) .fold-inner .fold-body {
   text-align: left;
 }
 
+/* Teaching: one tile per course session. Tiles with slides are links
+   (styled like .contact-button); the rest are greyed out until posted. */
+.sessions {
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .5rem;
+}
+
+.session {
+  display: block;
+  padding: .4rem .5rem;
+  border-radius: 3px;
+  background-color: #efefef;
+  color: #333;
+  font-size: .875rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a.session:hover,
+a.session:focus-visible {
+  background-color: #333;
+  color: #fff;
+}
+
+.session--pending {
+  color: #aaa;
+  cursor: default;
+}
+
 @media (min-width: 600px) {
   .entry {
     display: grid;
